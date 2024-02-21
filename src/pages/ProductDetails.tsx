@@ -21,7 +21,6 @@ function ProductDetails() {
           .get("/products/"+productId)
           .then((response) => {
             setProduct(response.data);
-            console.log(response.data)
           })
           .catch((error) => {
             console.error("Error fetching products:", error);

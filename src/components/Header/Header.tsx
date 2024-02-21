@@ -33,9 +33,6 @@ function ResponsiveAppBar() {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
-                        href="/"
-                        className={"headerLink"}
                         sx={{
                             mr: 2,
                             display: {xs: 'none', md: 'flex'},
@@ -46,7 +43,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        <Link to={'/'} >LOGO</Link>
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
