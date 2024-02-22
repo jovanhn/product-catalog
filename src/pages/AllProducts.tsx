@@ -9,7 +9,6 @@ import { Product } from "../interfaces/entities";
 
 import PaginationLink from '../components/Pagination';
 import Box from '@mui/material/Box';
-import { Divider } from '@mui/material';
 
 import { useLocation } from 'react-router-dom';
 
@@ -55,7 +54,8 @@ function AllProducts() {
 
     return (
         <>
-            <Box sx={{justifyContent:'flex-end'}}>
+            
+            <Box sx={{display:'flex',justifyContent:'flex-end'}}>
                 
                 <ToggleButtons layout={layout} onLayoutChange={handleNewLayout} />
 

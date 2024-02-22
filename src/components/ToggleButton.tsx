@@ -6,10 +6,12 @@ import GridViewIcon from '@mui/icons-material/GridView';
 export default function ToggleButtons({layout,onLayoutChange}:{layout: string|null ,onLayoutChange: Function}) {
 
     const handleLayoutChange = (event: React.MouseEvent<HTMLElement, MouseEvent>, newAlignment: string | null,) => {
+        console.log(event.type);
         onLayoutChange(newAlignment);
       };
 
   return (
+    <div>
     <ToggleButtonGroup
       value={layout}
       exclusive
@@ -23,5 +25,6 @@ export default function ToggleButtons({layout,onLayoutChange}:{layout: string|nu
         <GridViewIcon />
       </ToggleButton>
     </ToggleButtonGroup>
+    </div>
   );
 }

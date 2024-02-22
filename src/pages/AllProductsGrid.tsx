@@ -10,7 +10,7 @@ function AllProductsGrid({products}: {products: Product[]}) {
     return (
 
         <>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+            <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
                 {products.map((product) =>
                     <Grid xs={6} key={product.id}>

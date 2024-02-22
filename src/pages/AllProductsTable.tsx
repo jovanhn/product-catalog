@@ -5,10 +5,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-import { useState, useEffect } from "react";
-
-import axiosClient from '../api/Requests';
 import { Product } from '../interfaces/entities';
 import { Link } from 'react-router-dom';
 
