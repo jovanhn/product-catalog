@@ -10,5 +10,12 @@ export interface Product {
     id: number,
     title: string,
     description: string,
-    price: number
+    price: number,
+    images: string[]
+}
+
+export interface PageInfo {
+    currentPage: number,
+    itemsPerPage: number,
+    totalItems: number
 }

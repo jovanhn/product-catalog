@@ -6,9 +6,11 @@ function Home() {
     const navigate = useNavigate();
 
     return( 
+        
     <Button variant="contained" onClick={() => navigate('/products')}>
         Show all products
     </Button>
+    
         );
 }
 

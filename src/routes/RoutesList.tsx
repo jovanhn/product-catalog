@@ -1,7 +1,6 @@
 import Home from "../pages/Home";
+import ProductDetails from "../pages/ProductDetails";
 import AllProducts from "../pages/AllProducts";
-import ProductDetails
-    from "../pages/ProductDetails";
 
 
 const pages = [
@@ -11,7 +10,7 @@ const pages = [
 
 export const allRoutes = [
     ...pages,
-    { name: "ProductDetails", path: "/products/:productId", element: <ProductDetails /> }
+    { name: "ProductDetails", path: "/products/:productId", element: <ProductDetails /> },
 
 ]
 
