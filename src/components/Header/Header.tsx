@@ -49,7 +49,7 @@ export default function Header() {
                             style={{display: "flex", textDecoration: "none", color: "inherit", alignItems: "center"}}
                         >
                             <Avatar sx={{display: {xs: 'none', md: 'flex'}}} alt="logo" src="shopping.svg"/>
-                            Product Catalog
+                            <Box sx={{ p: 3 }}> Product Catalog </Box>
                         </Link>
                     </Typography>
                     <Box sx={{display: {xs: 'none', md: 'flex'}}}>
@@ -126,7 +126,7 @@ export default function Header() {
                             style={{display: "flex", textDecoration: "none", color: "inherit", alignItems: "center"}}
                         >
                             <Avatar alt="A" src="shopping.svg"> </Avatar>
-                            Product Catalog
+                            <Box sx={{ p: 1 }}> Product Catalog </Box>
                         </Link>
                     </Typography>
 
