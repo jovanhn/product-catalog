@@ -12,9 +12,6 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {Link} from "react-router-dom";
 import pages from "../../routes/RoutesList.tsx";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
-import { blueGrey } from '@mui/material/colors';
 
 export default function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -33,7 +30,6 @@ export default function Header() {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
                         sx={{
                             flexGrow: 1,
                             mr: 2,
@@ -48,13 +44,14 @@ export default function Header() {
                             to={"/"}
                             style={{display: "flex", textDecoration: "none", color: "inherit", alignItems: "center"}}
                         >
-                            <Avatar sx={{display: {xs: 'none', md: 'flex'}}} alt="logo" src="shopping.svg"/>
-                            <Box sx={{ p: 3 }}> Product Catalog </Box>
+                            <Avatar sx={{display: {xs: 'none', md: 'flex'}}}
+                                    style={{height: "auto", overflow: "visible"}} alt="V" src="shopping.svg"/>
+                            <Box sx={{ p: 1 }}> Product Catalog </Box>
                         </Link>
                     </Typography>
                     <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((link) => (
-                            <Link key={link.path} to={link.path} style={{color: "white", textDecoration: "none"}}>
+                            <Link key={link.name} to={link.path} style={{color: "white", textDecoration: "none"}}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{my: 2, color: 'white', display: 'block'}}
@@ -96,7 +93,7 @@ export default function Header() {
                             }}
                         >
                             {pages.map((link) => (
-                                <Link key={link.path} to={link.path} style={{color: "black", textDecoration: "none"}}>
+                                <Link key={link.name} to={link.path} style={{color: "black", textDecoration: "none"}}>
                                     <MenuItem onClick={handleCloseNavMenu}>
                                         {link.name}
                                     </MenuItem>
@@ -107,8 +104,6 @@ export default function Header() {
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href="#"
                         sx={{
                             mr: 2,
                             display: {xs: 'flex', md: 'none'},
@@ -125,16 +120,14 @@ export default function Header() {
                             to={"/"}
                             style={{display: "flex", textDecoration: "none", color: "inherit", alignItems: "center"}}
                         >
-                            <Avatar alt="A" src="shopping.svg"> </Avatar>
+                            <Avatar alt="V" style={{height: "auto", overflow: "visible"}} src="shopping.svg"/>
                             <Box sx={{ p: 1 }}> Product Catalog </Box>
                         </Link>
                     </Typography>
 
                     {/* Display: Always */}
                     <Box sx={{ml: {xs: 0, md: 5}}}>
-                        <Avatar sx={{ bgcolor: blueGrey[500] }}>
-                            <AccountCircleIcon />
-                        </Avatar>
+                        <Avatar alt="VIT" style={{height: "auto", overflow: "visible"}} src="vite.svg"/>
                     </Box>
                 </Toolbar>
             </Container>

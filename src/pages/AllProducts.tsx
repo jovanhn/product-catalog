@@ -35,7 +35,6 @@ function AllProducts() {
     const handleNewLayout = (newLayout: string) => {
         setLayout(newLayout);
     }
-
     useEffect(() => {
         client
             .get(`/products?page=${currentPage}&limit=${limit}&skip=${skip}`)
@@ -47,7 +46,7 @@ function AllProducts() {
             .catch((error) => {
                 console.error("Error fetching products:", error);
             });
-    }, [client, currentPage, limit, skip]);
+    }, [currentPage]);
 
     return (
         <>
