@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import { Product } from '../interfaces/entities';
+import { Product } from '../../interfaces/entities';
 import { Link } from 'react-router-dom';
 
 const Img = styled('img')({

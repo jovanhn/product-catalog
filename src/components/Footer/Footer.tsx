@@ -40,7 +40,7 @@ export default function Footer() {
             >
                 <Container maxWidth="sm">
                     <Typography variant="body1">
-                        My sticky footer can be found here.
+                        Products Catalog Co.
                     </Typography>
                     <Copyright/>
                 </Container>

@@ -5,8 +5,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Product } from '../interfaces/entities';
-import { Link } from 'react-router-dom';
+import { Product } from '../../interfaces/entities.tsx';
+import {Link} from "react-router-dom";
 
 
 
@@ -28,14 +28,13 @@ export default function AllProducts({products}: {products: Product[]}) {
             <TableRow
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              
             >
               <TableCell component="th" scope="row">
+                <Link to={`/products/${row.id}`}>
                 {row.id}
+                </Link>
               </TableCell>
               <TableCell >{row.title}
-              <Link to={`/products/${row.id}`}> details
-              </Link>
               </TableCell>
               <TableCell >{row.description}</TableCell>
               <TableCell >{row.price}</TableCell>

@@ -5,12 +5,10 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
     const navigate = useNavigate();
 
-    return( 
-        
+    return(
     <Button variant="contained" onClick={() => navigate('/products')}>
         Show all products
     </Button>
-    
         );
 }
 

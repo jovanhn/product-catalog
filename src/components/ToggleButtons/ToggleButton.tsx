@@ -2,10 +2,16 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import ListIcon from '@mui/icons-material/List';
 import GridViewIcon from '@mui/icons-material/GridView';
+import React from "react";
 
-export default function ToggleButtons({layout,onLayoutChange}:{layout: string|null ,onLayoutChange: Function}) {
+interface ToggleButtonProps {
+  layout: string|null,
+  onLayoutChange: (newAlignment:string)=>void
+}
 
-    const handleLayoutChange = (event: React.MouseEvent<HTMLElement, MouseEvent>, newAlignment: string | null,) => {
+export default function ToggleButtons({layout,onLayoutChange}:ToggleButtonProps) {
+
+    const handleLayoutChange = (event: React.MouseEvent<HTMLElement, MouseEvent>, newAlignment: string,) => {
         console.log(event.type);
         onLayoutChange(newAlignment);
       };

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import ToggleButtons from "../components/ToggleButton";
-import AllProductsGrid from "./AllProductsGrid";
-import AllProductsTable from "./AllProductsTable";
+import ToggleButtons from "../components/ToggleButtons/ToggleButton";
+import AllProductsGrid from "../components/ProductsViews/AllProductsGrid.tsx";
+import AllProductsTable from "../components/ProductsViews/AllProductsTable.tsx";
 import { useEffect } from "react";
 import React from "react";
 import axiosClient from '../api/Requests';
 import { Product } from "../interfaces/entities";
 
-import PaginationLink from '../components/Pagination';
+import PaginationLink from '../components/Pagination/Pagination';
 import Box from '@mui/material/Box';
 
 import { useLocation } from 'react-router-dom';
@@ -37,9 +37,6 @@ function AllProducts() {
     }
 
     useEffect(() => {
-        console.log('page: ' + currentPage);
-        console.log('skip: ' + skip);
-        console.log('limit: ' + limit);
         client
             .get(`/products?page=${currentPage}&limit=${limit}&skip=${skip}`)
             .then((response) => {
@@ -50,7 +47,7 @@ function AllProducts() {
             .catch((error) => {
                 console.error("Error fetching products:", error);
             });
-    }, [currentPage]);
+    }, [client, currentPage, limit, skip]);
 
     return (
         <>
@@ -65,7 +62,7 @@ function AllProducts() {
             <Box display="flex"
                 justifyContent='center'
                 sx={{ m: 2 }}>
-                <PaginationLink page={currentPage} totalItems={totalItems} />
+                <PaginationLink pageLimit={defaultPageSize} page={currentPage} totalItems={totalItems} />
             </Box>
         </>
     );

@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 
-const pageLimit = 10;
+interface PageInfo {
+    page: number,
+    totalItems: number,
+    pageLimit: number
+}
 
-function PaginationLink({ page, totalItems }: { page: number, totalItems: number }) {
-
-    
+function PaginationLink({ page, totalItems, pageLimit }: PageInfo) {
     return (
         <Pagination
             page={page}
