@@ -28,7 +28,7 @@ export default function ComplexGrid({product}:{product: Product}) {
       <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img alt="complex" src={product.images[0]} />
+            <Img alt="complex" src={product.imageUrl} />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
