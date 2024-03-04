@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import {useQuery} from "@tanstack/react-query";
+import {useMutation, useQuery} from "@tanstack/react-query";
 import {Product, ProductListResponse} from "../interfaces/entities.tsx";
 
 
@@ -29,4 +29,28 @@ export const getProductsByCategories = async (category: string) => {
     const response = await
         axios.get<Product[]>(`${base_url}/products?category=${category}`)
     return response.data
+}
+
+export const useProductById =  (productId: number) => {
+    console.log('hello');
+
+    const getProduct = async (productId: number): Promise<Product> => {
+        const response = await
+            axios.get<Product>(`${base_url}/products/${productId}`)
+        return response.data
+    }
+
+    return useQuery<Product>({
+        queryKey: ['product', productId],
+        queryFn: () => getProduct(productId)
+    })
+}
+
+export const useCreateProduct = () => {
+    return useMutation({
+        mutationKey: ['createProduct'],
+        mutationFn: async (newProduct: Product) => {
+            return axios.post(`${base_url}/products`, newProduct)
+        },
+    })
 }
