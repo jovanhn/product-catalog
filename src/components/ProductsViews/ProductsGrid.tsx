@@ -4,8 +4,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Product } from '../../interfaces/entities.tsx';
 import ProductCard from "../ProductCard/ProductCard.tsx";
 
-function AllProductsGrid({products}: {products: Product[]}) {
-
+function ProductsGrid({products}: {products: Product[]}) {
+    console.log(products)
     return (
         <>
             <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -20,4 +20,4 @@ function AllProductsGrid({products}: {products: Product[]}) {
     );
 }
 
-export default AllProductsGrid;
+export default ProductsGrid;

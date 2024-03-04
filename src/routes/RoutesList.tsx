@@ -1,11 +1,11 @@
 import Home from "../pages/Home";
 import ProductDetails from "../pages/ProductDetails";
-import AllProducts from "../pages/AllProducts";
+import Products from "../pages/Products.tsx";
 import Error from "../pages/Error.tsx";
 
 const pages = [
     { name: "Home", path: "/", element: <Home /> },
-    { name: "Products", path: "/products/", element: <AllProducts /> }
+    { name: "Products", path: "/products/", element: <Products /> }
 ];
 
 export const allRoutes = [

@@ -1,25 +1,22 @@
-import { Link } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
-import PaginationItem from '@mui/material/PaginationItem';
+import React from "react";
 
-interface PageInfo {
+interface PageOptions {
     page: number,
-    totalItems: number,
-    pageLimit: number
+    totalPages: number,
+    onPageChange: (newPage: number) => void
 }
 
-function PaginationLink({ page, totalItems, pageLimit }: PageInfo) {
+function PaginationLink({ page, totalPages, onPageChange }: PageOptions) {
+    const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+        onPageChange(value);
+    };
+
     return (
         <Pagination
             page={page}
-            count={totalItems == 0 ? 1 : Math.ceil(totalItems / pageLimit)}
-            renderItem={(item) => (
-                <PaginationItem
-                    component={Link}
-                    to={`/products${item.page == 1 ? '' : `?page=${item.page}&limit=${pageLimit}&skip=${(item.page!-1)*pageLimit}`}`}
-                    {...item}
-                />
-            )}
+            count={totalPages}
+            onChange={handleChange}
         />
     );
 }
