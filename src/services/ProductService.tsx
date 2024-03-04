@@ -14,7 +14,7 @@ export const useAllProducts = (page: number, size: number) => {
     }
 
     return useQuery<ProductListResponse>({
-        queryKey: ['content','pageable','totalElements', page],
+        queryKey: ['products', page],
         queryFn: () => getProducts(page)
     })
 }
@@ -32,7 +32,6 @@ export const getProductsByCategories = async (category: string) => {
 }
 
 export const useProductById =  (productId: number) => {
-    console.log('hello');
 
     const getProduct = async (productId: number): Promise<Product> => {
         const response = await
@@ -52,5 +51,14 @@ export const useCreateProduct = () => {
         mutationFn: async (newProduct: Product) => {
             return axios.post(`${base_url}/products`, newProduct)
         },
+    })
+}
+
+export const useDeleteProduct = () => {
+    return useMutation({
+        mutationKey: ['products'],
+        mutationFn: async  (productId: number) => {
+            return axios.delete(`${base_url}/products/${productId}`)
+        }
     })
 }

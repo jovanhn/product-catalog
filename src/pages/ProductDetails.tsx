@@ -12,15 +12,11 @@ function ProductDetails() {
     const {productId} = useParams()
     const navigate = useNavigate()
 
-
-
     const {
         isError,
         isLoading,
         data,
     } = useProductById(Number(productId))
-    console.log(data)
-
 
     return (
         <>
