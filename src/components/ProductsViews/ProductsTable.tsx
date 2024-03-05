@@ -9,35 +9,13 @@ import { Product } from '../../interfaces/entities.tsx';
 import {Link} from "react-router-dom";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from "@mui/material/Button";
-import {useDeleteProduct} from "../../services/ProductService.tsx";
-import keycloak from "../../auth/Keycloak.tsx";
 
 
+export default function AllProducts({products, onDelete}: {products: Product[], onDelete(id: number):void}) {
 
-export default function AllProducts({products}: {products: Product[]}) {
-
-  const {
-    mutate: mutateProduct,
-    isSuccess: isSuccessDeleteProduct,
-    isError: isErrorDeleteProduct,
-    error
-  } = useDeleteProduct()
-
-  const handleDelete = (productId: number) => {
-    console.log('delete ' + productId)
-    mutateProduct(productId)
-    if (isSuccessDeleteProduct) {
-      console.log('Product deleted!')
-    }
-  }
-  if (keycloak.tokenParsed) {
-    console.log('User email:' + keycloak.tokenParsed?.email)
-  }
   
   return (
-      <> {isErrorDeleteProduct || `${error}` }
-        {isSuccessDeleteProduct || 'Product deleted'}
-
+<>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -64,7 +42,7 @@ export default function AllProducts({products}: {products: Product[]}) {
               </TableCell>
               <TableCell >{row.description}</TableCell>
               <TableCell >{row.price}</TableCell>
-              <TableCell ><Button color="error" onClick={()=> handleDelete(row.id)}>Delete</Button></TableCell>
+              <TableCell ><Button color="error" onClick={()=> onDelete(row.id)}>Delete</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

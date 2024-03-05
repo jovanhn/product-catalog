@@ -9,8 +9,9 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab'
 import AddIcon from '@mui/icons-material/Add';
 
-import {useAllProducts} from "../services/ProductService.tsx";
+import {useAllProducts, useDeleteProduct} from "../services/ProductService.tsx";
 import {useNavigate} from "react-router-dom";
+import {queryClient} from "../main.tsx";
 
 const DEFAULT_PAGE_SIZE: number = 9;
 
@@ -35,6 +36,24 @@ function Products() {
     }
 
     const {
+        mutate: mutateProduct,
+        isSuccess: isSuccessDeleteProduct,
+        isError: isErrorDeleteProduct,
+        error
+    } = useDeleteProduct()
+
+
+    const handleDelete = (productId: number) => {
+        console.log('delete ' + productId)
+        mutateProduct(productId)
+        console.log('Product deleted!')
+        queryClient.refetchQueries({queryKey: ['products', page]});
+
+
+
+    }
+
+    const {
         isLoading,
         isError,
         data
@@ -42,6 +61,7 @@ function Products() {
 
     return (
         <>
+
             <Box sx={{display:'flex',justifyContent:'space-between'}}>
                 <Fab color="primary" aria-label="add" onClick={handleAddProduct}>
                     <AddIcon />
@@ -50,9 +70,10 @@ function Products() {
             </Box>
             {isLoading && 'Loading...'}
             {isError && 'Error!'}
+            {!isErrorDeleteProduct && !error && isSuccessDeleteProduct && 'Product deleted'}
                 {!isLoading && !isError && <>
             <br />
-            {layout == 'table' ? <AllProductsTable products={data!.content} /> : <ProductsGrid products={data!.content} />}
+            {layout == 'table' ? <AllProductsTable onDelete={handleDelete } products={data!.content} /> : <ProductsGrid products={data!.content} />}
             <Box display="flex"
                 justifyContent='center'
                 sx={{ m: 2 }}>
