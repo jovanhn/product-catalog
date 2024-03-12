@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build and deploy docker
 
 on:
   push:
@@ -10,9 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
 
 env:
   REGISTRY: ghcr.io
