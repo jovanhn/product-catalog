@@ -43,6 +43,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
   azure-deploy:
+    needs: github-pages-deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
