@@ -2,14 +2,13 @@ name: Build and deploy docker
 
 on:
   push:
-    branches: [ 'main' ]
+    branches: [ 'dev' ]
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
-
 
 env:
   REGISTRY: ghcr.io
