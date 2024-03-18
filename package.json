@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.10",
-    "@mui/material-next": "^6.0.0-alpha.123",
+    "@mui/material-next": "^6.0.0-alpha.126",
     "@react-keycloak/web": "^3.4.0",
     "@tanstack/react-query": "^5.24.1",
     "@yudiel/react-qr-scanner": "^2.0.0-beta.3",
